@@ -1,0 +1,22 @@
+<div class="max-w-lg mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+    <h2 class="text-xl font-semibold text-center mb-4 text-purple-700">To-Do List</h2>
+  
+    <!-- Input Form -->
+    <div class="flex space-x-2 mb-4">
+      <input id="task" type="text" [formControl]="task" 
+        class="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+        placeholder="Enter a task...">
+      <button type="button" (click)="addTask()" 
+        class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+        Add
+      </button>
+    </div>
+  
+    <!-- Stored Tasks (List Display) -->
+    <ul class="space-y-2" *ngIf="tasks.length > 0">
+      <li *ngFor="let t of tasks" class="p-3 bg-white rounded-lg shadow">
+        <span class="text-gray-800">{{ t }}</span>
+      </li>
+    </ul>
+  </div>
+  
