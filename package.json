@@ -1,6 +1,10 @@
 {
+<<<<<<< Updated upstream
   "name": "its320frontend-dojillo",
   "version": "0.0.0",
+=======
+  "type": "module",
+>>>>>>> Stashed changes
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+<<<<<<< Updated upstream
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.1.0",
@@ -19,6 +24,10 @@
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
     "@tailwindcss/postcss": "^4.0.4",
+=======
+  "dependencies": {
+    "cors": "^2.8.5",
+>>>>>>> Stashed changes
     "express": "^4.21.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
