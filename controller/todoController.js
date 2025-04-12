@@ -1,4 +1,4 @@
-import Todo from './todoModel.js'; // import your model
+import Todo from './todoModel.js'; 
 
 // Get all todos
 export const getTodos = async (req, res) => {
@@ -27,7 +27,7 @@ export const createTodo = async (req, res) => {
     }
 };
 
-// Optionally delete a todo
+// Delete a todo by id
 export const deleteTodo = async (req, res) => {
     try {
         const { id } = req.params;
@@ -36,6 +36,32 @@ export const deleteTodo = async (req, res) => {
             return res.status(404).json({ message: 'Todo not found' });
         }
         res.status(200).json({ message: 'Todo deleted' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+// Update a todo by id
+export const updateTodo = async (req, res) => {
+    const { id } = req.params;
+    const { items } = req.body;
+
+    if (!items) {
+        return res.status(400).json({ message: 'Items are required to update.' });
+    }
+
+    try {
+        const updatedTodo = await Todo.findOneAndUpdate(
+            { id },                    // filter
+            { items },                 // update
+            { new: true }              // return the updated document
+        );
+
+        if (!updatedTodo) {
+            return res.status(404).json({ message: 'Todo not found' });
+        }
+
+        res.status(200).json(updatedTodo);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
